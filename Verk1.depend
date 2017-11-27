@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1511789248 source:c:\users\notandi\desktop\forritun_hr_1\verk1\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+
