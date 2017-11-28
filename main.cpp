@@ -7,6 +7,7 @@ using namespace std;
 
 bool readlinefromfile(ifstream &fin);
 void read();
+void write();
 void menu();
 
 int main()
@@ -29,6 +30,7 @@ void menu()
             read();
             break;
         case 'w':
+            write();
             break;
         case 'q':
             break;
@@ -57,6 +59,29 @@ void read()
     } while (more != 'n' && done != true);
     system("cls");
     menu();
+}
+
+void write()
+{
+    ofstream fout;
+    string input;
+    fout.open("textFile.txt", ios::app);
+    if(fout.is_open())
+    {
+        getline(cin, input);
+        while(input[0] != '\\')
+        {
+            fout << input << endl;
+            getline(cin, input);
+        }
+        input.erase(0, 1);
+        fout << input;
+        fout.close();
+    }
+    else
+    {
+        cout << "File could not be opened";
+    }
 }
 
 bool readlinefromfile(ifstream &fin)
